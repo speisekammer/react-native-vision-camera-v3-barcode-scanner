@@ -33,11 +33,7 @@ export type BarcodeData = {
   format: string;
 };
 
-export type BarcodeDataMap = {
-  [key: number]: BarcodeData;
-};
-
 export type CameraTypes = {
-  callback: (data: BarcodeDataMap) => void;
+  callback: (data: BarcodeData[]) => void;
   options: ScanBarcodeOptions;
 } & CameraProps;

@@ -9,18 +9,18 @@ import type {
   CameraTypes,
   Frame,
   FrameProcessor,
-  BarcodeDataMap,
+  BarcodeData,
 } from './types';
 
 export { scanBarcodes } from './scanBarcodes';
-export type { BarcodeData, BarcodeDataMap } from './types';
+export type { BarcodeData } from './types';
 
 export const Camera = forwardRef(function Camera(
   props: CameraTypes,
   ref: ForwardedRef<any>
 ) {
   const { callback, device, options } = props;
-  const processWorklets = useRunInJS((data: BarcodeDataMap): void => {
+  const processWorklets = useRunInJS((data: BarcodeData[]): void => {
     callback(data);
   }, []);
   const frameProcessor: FrameProcessor = useFrameProcessor(
