@@ -86,6 +86,7 @@
                     obj[@"bottom"] = @(CGRectGetMaxY(barcode.frame));
                     obj[@"width"] = @(barcode.frame.size.width);
                     obj[@"height"] = @(barcode.frame.size.height);
+                    obj[@"format"] = @(barcode.format);
 
                     MLKBarcodeValueType valueType = barcode.valueType;
 

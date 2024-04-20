@@ -70,6 +70,8 @@ class VisionCameraV3BarcodeScannerModule(proxy : VisionCameraProxy, options: Map
         }
         val rawValue = barcode.rawValue
         map.putString("rawValue",rawValue)
+        val format = barcode.format
+        map.putString("format",format)
         val valueType = barcode.valueType
         when (valueType) {
           Barcode.TYPE_WIFI -> {

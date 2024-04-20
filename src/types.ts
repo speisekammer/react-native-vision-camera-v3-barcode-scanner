@@ -30,6 +30,7 @@ export type BarcodeData = {
   right: number;
   top: number;
   width: number;
+  format: string;
 };
 
 export type BarcodeDataMap = {
