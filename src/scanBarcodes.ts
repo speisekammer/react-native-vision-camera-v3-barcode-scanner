@@ -2,7 +2,7 @@ import type {
   Frame,
   FrameProcessorPlugin,
   ScanBarcodeOptions,
-  BarcodeDataMap,
+  BarcodeData,
 } from './types';
 import { VisionCameraProxy } from 'react-native-vision-camera';
 import { Platform } from 'react-native';
@@ -19,7 +19,7 @@ const LINKING_ERROR: string =
 export function scanBarcodes(
   frame: Frame,
   options: ScanBarcodeOptions
-): BarcodeDataMap {
+): BarcodeData[] {
   'worklet';
   if (plugin == null) throw new Error(LINKING_ERROR);
   // @ts-ignore
