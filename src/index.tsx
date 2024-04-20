@@ -20,18 +20,14 @@ export const Camera = forwardRef(function Camera(
   ref: ForwardedRef<any>
 ) {
   const { callback, device, options } = props;
-  // @ts-ignore
-  const useWorklets = useRunInJS((data: BarcodeDataMap): void => {
+  const processWorklets = useRunInJS((data: BarcodeDataMap): void => {
     callback(data);
   }, []);
   const frameProcessor: FrameProcessor = useFrameProcessor(
     (frame: Frame): void => {
       'worklet';
-      // @ts-ignore
       const data = scanBarcodes(frame, options);
-      // @ts-ignore
-      // eslint-disable-next-line react-hooks/rules-of-hooks
-      useWorklets(data);
+      processWorklets(data);
     },
     []
   );
